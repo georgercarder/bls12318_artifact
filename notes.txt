@@ -1,0 +1,4 @@
+CGO_ENABLED=1 go build -buildmode=c-archive -o target/libwasm2oci.a lib/libwasm2oci.go
+
+CGO_ENABLED=1 go build -buildmode=c-archive -o target/libwasm2oci.a
+

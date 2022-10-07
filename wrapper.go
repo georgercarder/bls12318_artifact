@@ -1,10 +1,13 @@
-package bls12318_artifact
+package main 
 
 import (
+    "C"
+
     "github.com/ethereum/go-ethereum/common"
     "github.com/ethereum/go-ethereum/core/vm"
 )
 
+// export RunContractAt
 func RunContractAt(addr uint64, input []byte, suppliedGas uint64) (ret []byte, errString string, gasUsed uint64) {
 
     _addr := common.BytesToAddress([]byte{byte(addr)}) 
@@ -19,6 +22,8 @@ func RunContractAt(addr uint64, input []byte, suppliedGas uint64) (ret []byte, e
     output, err := precompile.Run(input)
     return output, err.Error(), gasCost
 }
+
+func main() {}
 
 /*
 var PrecompiledContractsBLS = map[common.Address]PrecompiledContract{
