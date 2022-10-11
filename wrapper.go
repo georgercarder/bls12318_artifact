@@ -24,7 +24,7 @@ func RunContractAt(addr uint64, input []byte, suppliedGas uint64) (gasUsed uint6
     }
     gasUsed = precompile.RequiredGas(input)
     if suppliedGas < gasUsed {
-        goString := "insufficient gas"
+        goString = "insufficient gas"
         errLen = uint64(len(goString))
         errString = C.CString(goString)
         gasUsed = 0
@@ -32,7 +32,7 @@ func RunContractAt(addr uint64, input []byte, suppliedGas uint64) (gasUsed uint6
     }
     output, err := precompile.Run(input)
     if err != nil {
-        goString := err.Error()
+        goString = err.Error()
         errLen = uint64(len(goString))
         errString = C.CString(goString)
     }
